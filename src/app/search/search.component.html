@@ -1,0 +1,51 @@
+<form name="searchForm" role="form" [formGroup]="formModel" (ngSubmit)="search()" novalidate>
+  <div class="form-group" [class.has-error]="formModel.hasError('minlength', 'title')" >
+    <label for="productTile">商品名称：</label>
+    <input formControlName="title" type="text" id = "productTile" placeholder="商品名称" class="form-control">
+    <span class="help-block" [class.hidden]="!formModel.hasError('minlength', 'title')" >请至少输入三个字</span>
+  </div>
+  <div class="form-group" [class.has-error]="formModel.hasError('positiveNumber', 'price')" >
+    <label for="productPrice">商品价格：</label>
+    <input formControlName="price" type="number" id = "productPrice" placeholder="商品价格" class="form-control">
+    <span class="help-block" [class.hidden]="!formModel.hasError('positiveNumber', 'price')" >请输入正数</span>
+  </div>
+  <div class="form-group">
+    <label for="productCategory">商品类别：</label>
+    <select formControlName="category" id="productCategory"  class="form-control">
+      <option value="-1">全部</option>
+      <option *ngFor="let category of categories" [value]="category">{{category}}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="productCategory">防抖：</label>
+    <input [formControl]="searchInput" class="form-control">
+  </div>
+  <div class="form-group">
+    <button class="btn btn-primary btn-block" type="submit">查询</button>
+  </div>
+</form>
+
+<table>
+  <thead>
+    <tr>
+      <td>考试id</td>
+      <td>考试名称</td>
+      <td>学科id</td>
+      <td>学科名称</td>
+      <td>分数管道</td>
+      <td>操作</td>
+    </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let item of subject; let i = index">
+          <td *ngIf="i === 0" [attr.rowspan]="subject.length">{{exam.examId}}</td>
+          <td *ngIf="i === 0" [attr.rowspan]="subject.length">{{exam.examName}}</td>
+          <td>{{item.subjectId}}</td>
+          <td>{{item.subjectName}}</td>
+          <td>{{item.score | number: '2.2-4'}}</td>
+        <td><a (click)="create(item.subjectId)" [class.disable]="isCreating">{{item.status | state: ['参数']}}</a></td>
+      </tr>
+  </tbody>
+</table>
+

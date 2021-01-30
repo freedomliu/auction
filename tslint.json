@@ -1,4 +1,4 @@
-{
+{ // typescript代码质量检查规则
   "extends": "tslint:recommended",
   "rules": {
     "align": {

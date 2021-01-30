@@ -1,0 +1,11 @@
+<a [routerLink]="['./item', 2]" [queryParams]="{id:1}">item页面</a>
+<input type="button" value="item详情" (click)="toItemDetails()">
+<!--如果希望点击开始聊天的时候  同时进行某个路由则primary-->
+<!--<a [routerLink] = "[{outlets: {primary: 'home' ,aux: 'chat'}}]">开始聊天</a>-->
+<a [routerLink] = "[{outlets: {aux: 'chat'}}]">开始聊天</a>
+<a [routerLink] = "[{outlets: {aux: null}}]">结束聊天</a>
+<div>
+  <router-outlet></router-outlet>
+</div>
+<!--辅助路由插座-->
+<router-outlet name="aux"></router-outlet>

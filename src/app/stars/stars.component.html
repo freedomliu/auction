@@ -1,0 +1,6 @@
+<span *ngFor="let star of stars;let i = index;">
+  <span [class.glyphicon-star-empty]="star" class="glyphicon glyphicon-star" (click)="clickStar(i)"></span>
+</span>
+<!--小数点前一位 小数点后最多两位-->
+<div>{{rating | number: '1.0-2'}}颗星星</div>
+

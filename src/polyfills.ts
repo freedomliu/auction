@@ -55,6 +55,7 @@
 /***************************************************************************************************
  * Zone JS is required by default for Angular itself.
  */
+// 引入库 使angular可以运行在某些老的浏览器中
 import 'zone.js/dist/zone';  // Included with Angular CLI.
 
 

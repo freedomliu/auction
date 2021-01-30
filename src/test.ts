@@ -6,7 +6,7 @@ import {
   BrowserDynamicTestingModule,
   platformBrowserDynamicTesting
 } from '@angular/platform-browser-dynamic/testing';
-
+// 自动化测试
 declare const require: {
   context(path: string, deep?: boolean, filter?: RegExp): {
     keys(): string[];
